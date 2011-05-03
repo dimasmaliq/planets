@@ -53,7 +53,6 @@ public class GamePanel
         layeredPane.setPreferredSize(new Dimension(width, height));
         layeredPane.add(drawPanel, new Integer(0));
 
-        add(new ControlPanel());
         add(layeredPane);
     }
 
@@ -68,7 +67,7 @@ public class GamePanel
             public void run()
             {
                 // Start the game
-                game = new MyGame(width, height, drawPanel);
+                game = new PlanetsGame(width, height, drawPanel);
                 game.execute();
             }
         };

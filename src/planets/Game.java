@@ -167,10 +167,10 @@ public abstract class Game
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
 
-            long currentTime = getTime();
+            long preRoutineTime = getTime();
 
             // run game logic
-            update(getTime());
+            update(preRoutineTime);
 
             // let subsystem paint
             draw();
@@ -178,18 +178,28 @@ public abstract class Game
             // update window contents
             Display.update();
 
-            long elapsedTime = getTime() - currentTime;
-            long targetTime = (long)(1000 * (1 / (double)FPS));
-
-            // Sleeps to keep in time with the FPS
-            if (elapsedTime < targetTime)
-            {
-                sleep(targetTime - elapsedTime);
-            }
+            // stabilize the FPS
+            keepTime(preRoutineTime);
         }
 
         // clean up
         Display.destroy();
+    }
+
+    /**
+     * Stabilize the FPS
+     * @param currentTime The time before calling game routines
+     */
+    private void keepTime(long preRoutineTime)
+    {
+        long elapsedTime = getTime() - preRoutineTime;
+        long targetTime = (long)(1000 * (1 / (double)FPS));
+
+        // Sleeps to keep in time with the FPS
+        if (elapsedTime < targetTime)
+        {
+            sleep(targetTime - elapsedTime);
+        }
     }
 
 
@@ -229,13 +239,13 @@ public abstract class Game
 
     // ----------------------------------------------------------
     /**
-     * Stops the game.
+     * Starts or stops the game
+     * @param isRunning Whether you want the game to run or stop
      */
-    public void stop()
+    public void setRunning(boolean isRunning)
     {
-        gameRunning = false;
+        gameRunning = isRunning;
     }
-
 
     // ----------------------------------------------------------
     /**

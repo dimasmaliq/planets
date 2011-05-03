@@ -1,5 +1,6 @@
 package planets;
 
+import java.awt.BorderLayout;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.KeyStroke;
@@ -92,9 +93,9 @@ public class ControlPanel extends JMenuBar
         helpMenu.add(aboutItem);
 
         // -------------------------------
-        add(fileMenu);
+        add(fileMenu, BorderLayout.WEST);
         // add(editMenu);
-        add(helpMenu);
+        add(helpMenu, BorderLayout.WEST);
     }
 
     // -----------------------------

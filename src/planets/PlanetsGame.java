@@ -1,5 +1,6 @@
 package planets;
 
+import javax.swing.JFrame;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.glu.Sphere;
@@ -17,7 +18,7 @@ import org.lwjgl.input.Keyboard;
  * @author trev
  * @version Apr 2, 2011
  */
-public class MyGame
+public class PlanetsGame
     extends Game
 {
     private GameState     gameState;
@@ -26,6 +27,30 @@ public class MyGame
     private boolean       showingTriggerText;
     private boolean       keyPressed;
 
+    /**
+     * The driver for the game
+     *
+     * @param args
+     *            Command-line arguments
+     */
+    public static final void main(String[] args)
+    {
+        JFrame frame = new JFrame();
+
+        GamePanel gamePanel = new GamePanel(800, 600);
+        ControlPanel controlPanel = new ControlPanel();
+
+        frame.setJMenuBar(controlPanel);
+
+        frame.getContentPane().add(gamePanel);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        gamePanel.run();
+    }
 
     // ----------------------------------------------------------
     /**
@@ -40,7 +65,7 @@ public class MyGame
      * @param textLabel
      *            the GameText
      */
-    public MyGame(int width, int height, DrawPanel drawPanel)
+    public PlanetsGame(int width, int height, DrawPanel drawPanel)
     {
         super(width, height, drawPanel);
     }
