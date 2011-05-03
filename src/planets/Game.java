@@ -47,12 +47,8 @@ public abstract class Game
      */
     public static final int FPS = 60;
 
-    /** Is this an application or applet */
-    private static boolean  isApplication;
-
     private int             width;
     private int             height;
-
 
     /**
      * Construct our game and set it running.
@@ -120,12 +116,6 @@ public abstract class Game
         }
 
         Keyboard.enableRepeatEvents(false);
-
-        // grab the mouse, don't want that hideous cursor when we're playing!
-        if (isApplication)
-        {
-            Mouse.setGrabbed(true);
-        }
 
         // enable textures since we're going to use these for our sprites
         glEnable(GL_TEXTURE_2D);

@@ -21,11 +21,17 @@ public abstract class Entity
     private Vector3f location;
 
     /**
+     * The rotation of the entity
+     */
+    private Vector3f rotation;
+
+    /**
      * Create a new entity at the origin
      */
     public Entity()
     {
         location = new Vector3f(0.0f, 0.0f, 0.0f);
+        setRotation(new Vector3f(0.0f, 0.0f, 0.0f));
     }
 
     /**
@@ -44,5 +50,23 @@ public abstract class Entity
     public void setLocation(Vector3f location)
     {
         this.location = location;
+    }
+
+    /**
+     * Sets the rotation of the entity
+     * @param rotation the rotation to set
+     */
+    public void setRotation(Vector3f rotation)
+    {
+        this.rotation = rotation;
+    }
+
+    /**
+     * Gets the rotation of the entity
+     * @return the rotation
+     */
+    public Vector3f getRotation()
+    {
+        return rotation;
     }
 }
