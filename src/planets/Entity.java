@@ -30,7 +30,7 @@ public abstract class Entity
      */
     public Entity()
     {
-        location = new Vector3f(0.0f, 0.0f, 0.0f);
+        setLocation(new Vector3f(0.0f, 0.0f, 0.0f));
         setRotation(new Vector3f(0.0f, 0.0f, 0.0f));
     }
 
