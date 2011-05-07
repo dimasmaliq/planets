@@ -1,7 +1,7 @@
 package planets.entity.tests;
 
+import planets.input.TestableKeyboard;
 import org.lwjgl.input.Keyboard;
-import planets.tests.TestableKeyboard;
 import planets.tests.TestableVector3f;
 import org.lwjgl.util.vector.Vector3f;
 import planets.entity.Player;
@@ -55,5 +55,6 @@ public class PlayerTest extends EntityTest
     public void testUpdateLeftRight()
     {
         TestableKeyboard.setKeyDown(Keyboard.KEY_W);
+        testPlayer.update();
     }
 }

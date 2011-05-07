@@ -1,6 +1,7 @@
 package planets.entity;
 
-import planets.tests.TestableKeyboard;
+import java.util.HashMap;
+import planets.input.TestableKeyboard;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.input.Keyboard;
 import planets.Entity;
@@ -27,6 +28,11 @@ public class Player extends Entity implements Moveable
     private float turnSpeed;
 
     /**
+     * The keybindings to actions.
+     */
+    private HashMap<String, Integer> keys;
+
+    /**
      * A good speed for the player to move at the start
      */
     private static final float DEFAULT_SPEED = .10f;
@@ -44,6 +50,7 @@ public class Player extends Entity implements Moveable
         super();
         speed = DEFAULT_SPEED;
         turnSpeed = DEFAULT_TURNSPEED;
+        keys = getDefaultKeys();
     }
 
     public void update()
@@ -75,11 +82,11 @@ public class Player extends Entity implements Moveable
         /**
          * Up and Down
          */
-        if(TestableKeyboard.isKeyDown(Keyboard.KEY_W))
+        if(TestableKeyboard.isKeyDown(keys.get("up")))
         {
             move(new Vector3f(0.0f, speed, 0.0f));
         }
-        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_S))
+        else if(TestableKeyboard.isKeyDown(keys.get("down")))
         {
             move(new Vector3f(0.0f, -speed, 0.0f));
         }
@@ -87,11 +94,11 @@ public class Player extends Entity implements Moveable
         /**
          * Left and Right
          */
-        if(TestableKeyboard.isKeyDown(Keyboard.KEY_A))
+        if(TestableKeyboard.isKeyDown(keys.get("left")))
         {
             move(new Vector3f(-speed, 0.0f, 0.0f));
         }
-        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_D))
+        else if(TestableKeyboard.isKeyDown(keys.get("right")))
         {
             move(new Vector3f(speed, 0.0f, 0.0f));
         }
@@ -99,11 +106,11 @@ public class Player extends Entity implements Moveable
         /**
          * Forward and Backward
          */
-        if(TestableKeyboard.isKeyDown(Keyboard.KEY_Q))
+        if(TestableKeyboard.isKeyDown(keys.get("forward")))
         {
             move(new Vector3f(0.0f, 0.0f, -speed));
         }
-        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_E))
+        else if(TestableKeyboard.isKeyDown(keys.get("backward")))
         {
             move(new Vector3f(0.0f, 0.0f, speed));
         }
@@ -111,11 +118,11 @@ public class Player extends Entity implements Moveable
         /**
          * Look left and right
          */
-        if(TestableKeyboard.isKeyDown(Keyboard.KEY_LEFT))
+        if(TestableKeyboard.isKeyDown(keys.get("counterclockwise")))
         {
             rotate(new Vector3f(0.0f, -turnSpeed, 0.0f));
         }
-        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_RIGHT))
+        else if(TestableKeyboard.isKeyDown(keys.get("clockwise")))
         {
             rotate(new Vector3f(0.0f, turnSpeed, 0.0f));
         }
@@ -123,11 +130,11 @@ public class Player extends Entity implements Moveable
         /**
          * Look Up and Down
          */
-        if(TestableKeyboard.isKeyDown(Keyboard.KEY_UP))
+        if(TestableKeyboard.isKeyDown(keys.get("incline")))
         {
             rotate(new Vector3f(-turnSpeed, 0.0f, 0.0f));
         }
-        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_DOWN))
+        else if(TestableKeyboard.isKeyDown(keys.get("decline")))
         {
             rotate(new Vector3f(turnSpeed, 0.0f, 0.0f));
         }
@@ -149,5 +156,39 @@ public class Player extends Entity implements Moveable
     public float getTurnSpeed()
     {
         return turnSpeed;
+    }
+
+    /**
+     * Get the default keys that move the player around
+     * @return the default key bindings
+     */
+    public HashMap<String, Integer> getDefaultKeys()
+    {
+        HashMap<String, Integer> keyMap = new HashMap<String, Integer>();
+        keyMap.put("forward", Keyboard.KEY_E);
+        keyMap.put("backward", Keyboard.KEY_Q);
+
+        keyMap.put("up", Keyboard.KEY_W);
+        keyMap.put("down", Keyboard.KEY_S);
+
+        keyMap.put("left", Keyboard.KEY_A);
+        keyMap.put("right", Keyboard.KEY_D);
+
+        keyMap.put("clockwise", Keyboard.KEY_RIGHT);
+        keyMap.put("counterclockwise", Keyboard.KEY_LEFT);
+
+        keyMap.put("incline", Keyboard.KEY_UP);
+        keyMap.put("decline", Keyboard.KEY_DOWN);
+
+        return keyMap;
+    }
+
+    /**
+     * Get the player's current keybindings
+     * @return the current keybindings
+     */
+    public HashMap<String, Integer> getKeys()
+    {
+        return keys;
     }
 }

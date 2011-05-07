@@ -1,4 +1,4 @@
-package planets.tests;
+package planets.input;
 
 import java.util.Hashtable;
 import org.lwjgl.input.Keyboard;
