@@ -39,7 +39,7 @@ public abstract class EntityTest extends TestCase
      */
     public void testGetLocation()
     {
-        assertEquals(new TestVector3f(0.0f, 0.0f, 0.0f), testEntity.getLocation());
+        assertEquals(new TestableVector3f(0.0f, 0.0f, 0.0f), testEntity.getLocation());
     }
 
     /**
@@ -48,7 +48,7 @@ public abstract class EntityTest extends TestCase
     public void testSetLocation()
     {
         testEntity.setLocation(new Vector3f(1.0f, 1.0f, 1.0f));
-        assertEquals(new TestVector3f(1.0f, 1.0f, 1.0f), testEntity.getLocation());
+        assertEquals(new TestableVector3f(1.0f, 1.0f, 1.0f), testEntity.getLocation());
     }
 
     /**
@@ -56,7 +56,7 @@ public abstract class EntityTest extends TestCase
      */
     public void testGetRotation()
     {
-        assertEquals(new TestVector3f(0.0f, 0.0f, 0.0f), testEntity.getRotation());
+        assertEquals(new TestableVector3f(0.0f, 0.0f, 0.0f), testEntity.getRotation());
     }
 
     /**
@@ -65,6 +65,6 @@ public abstract class EntityTest extends TestCase
     public void testSetRotation()
     {
         testEntity.setRotation(new Vector3f(1.0f, 1.0f, 1.0f));
-        assertEquals(new TestVector3f(1.0f, 1.0f, 1.0f), testEntity.getRotation());
+        assertEquals(new TestableVector3f(1.0f, 1.0f, 1.0f), testEntity.getRotation());
     }
 }

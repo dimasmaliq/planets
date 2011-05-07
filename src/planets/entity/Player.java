@@ -1,5 +1,6 @@
 package planets.entity;
 
+import planets.tests.TestableKeyboard;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.input.Keyboard;
 import planets.Entity;
@@ -44,11 +45,11 @@ public class Player extends Entity implements Moveable
         /**
          * Up and Down
          */
-        if(Keyboard.isKeyDown(Keyboard.KEY_W))
+        if(TestableKeyboard.isKeyDown(Keyboard.KEY_W))
         {
             move(new Vector3f(0.0f, .10f, 0.0f));
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_S))
+        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_S))
         {
             move(new Vector3f(0.0f, -.10f, 0.0f));
         }
@@ -56,11 +57,11 @@ public class Player extends Entity implements Moveable
         /**
          * Left and Right
          */
-        if(Keyboard.isKeyDown(Keyboard.KEY_A))
+        if(TestableKeyboard.isKeyDown(Keyboard.KEY_A))
         {
             move(new Vector3f(-.10f, 0.0f, 0.0f));
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_D))
+        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_D))
         {
             move(new Vector3f(.10f, 0.0f, 0.0f));
         }
@@ -68,11 +69,11 @@ public class Player extends Entity implements Moveable
         /**
          * Forward and Backward
          */
-        if(Keyboard.isKeyDown(Keyboard.KEY_Q))
+        if(TestableKeyboard.isKeyDown(Keyboard.KEY_Q))
         {
             move(new Vector3f(0.0f, 0.0f, -.10f));
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_E))
+        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_E))
         {
             move(new Vector3f(0.0f, 0.0f, .10f));
         }
@@ -80,11 +81,11 @@ public class Player extends Entity implements Moveable
         /**
          * Look left and right
          */
-        if(Keyboard.isKeyDown(Keyboard.KEY_LEFT))
+        if(TestableKeyboard.isKeyDown(Keyboard.KEY_LEFT))
         {
             rotate(new Vector3f(0.0f, -.10f, 0.0f));
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
+        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_RIGHT))
         {
             rotate(new Vector3f(0.0f, 0.10f, 0.0f));
         }
@@ -92,11 +93,11 @@ public class Player extends Entity implements Moveable
         /**
          * Look Up and Down
          */
-        if(Keyboard.isKeyDown(Keyboard.KEY_UP))
+        if(TestableKeyboard.isKeyDown(Keyboard.KEY_UP))
         {
             rotate(new Vector3f(-.10f, 0.0f, 0.0f));
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_DOWN))
+        else if(TestableKeyboard.isKeyDown(Keyboard.KEY_DOWN))
         {
             rotate(new Vector3f(0.10f, 0.0f, 0.0f));
         }

@@ -10,7 +10,7 @@ import org.lwjgl.util.vector.Vector3f;
  *  @author carlos
  *  @version May 3, 2011
  */
-public class TestVector3f
+public class TestableVector3f
     extends Vector3f
 {
     /**
@@ -19,7 +19,7 @@ public class TestVector3f
      * @param y The Y component of the Vector
      * @param z The Z component of the Vector
      */
-    public TestVector3f(float x, float y, float z)
+    public TestableVector3f(float x, float y, float z)
     {
         super(x, y, z);
     }
