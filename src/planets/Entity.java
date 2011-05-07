@@ -35,6 +35,12 @@ public abstract class Entity
     }
 
     /**
+     * Called by the game engine every cycle.
+     * Allows the object to change its state on a frame-by-frame basis.
+     */
+    public abstract void update();
+
+    /**
      * Getter method for the location of the Entity
      * @return The location of the Entity
      */

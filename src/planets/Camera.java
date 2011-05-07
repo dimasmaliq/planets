@@ -55,6 +55,7 @@ public class Camera
     {
         if(follow != null)
         {
+            setRotation(follow.getRotation());
             setLocation(follow.getLocation());
         }
     }
