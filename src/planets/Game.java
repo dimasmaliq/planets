@@ -22,7 +22,8 @@ package planets;
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.util.glu.GLU;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
@@ -115,14 +116,21 @@ public abstract class Game
             e.printStackTrace();
         }
 
-        Keyboard.enableRepeatEvents(false);
+        Keyboard.enableRepeatEvents(true);
 
         // enable textures since we're going to use these for our sprites
-        glEnable(GL_TEXTURE_2D);
+        //GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glEnable(GL11.GL_CULL_FACE);
+        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        GL11.glDepthFunc(GL11.GL_LEQUAL);
+        GL11.glShadeModel(GL11.GL_SMOOTH);
 
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glViewport(0, 0, width, height);
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glLoadIdentity();
+        GLU.gluPerspective(90.0f, width/height, 0.1f, 100.0f);
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+        GL11.glHint(GL11.GL_PERSPECTIVE_CORRECTION_HINT, GL11.GL_NICEST);
     }
 
 
@@ -153,9 +161,9 @@ public abstract class Game
         while (gameRunning)
         {
             // clear screen
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-            glMatrixMode(GL_MODELVIEW);
-            glLoadIdentity();
+            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+            GL11.glMatrixMode(GL11.GL_MODELVIEW);
+            GL11.glLoadIdentity();
 
             long preRoutineTime = getTime();
 

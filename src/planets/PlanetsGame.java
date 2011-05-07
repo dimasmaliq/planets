@@ -1,5 +1,6 @@
 package planets;
 
+import planets.entity.Player;
 import javax.swing.JFrame;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
@@ -22,6 +23,7 @@ public class PlanetsGame
     extends Game
 {
     private GameState     gameState;
+    private Player        player;
     private Camera        camera;
 
     private boolean       showingTriggerText;
@@ -75,7 +77,11 @@ public class PlanetsGame
     public void load()
     {
         gameState = new GameState();
-        camera = new Camera();
+
+        player = new Player();
+
+
+        camera = new Camera(player);
 
         loadActors();
         loadTriggers();
@@ -85,20 +91,19 @@ public class PlanetsGame
     @Override
     public void update(long gameTime)
     {
-        camera.setLocation(new Vector3f(0.0f, 0.0f, 0.0f));
+        player.update();
+        camera.update();
     }
-
 
     @Override
     public void draw()
     {
         camera.draw();
         Sphere sphere = new Sphere();
-        GL11.glPushMatrix();
             GL11.glColor3f(1.0f, 1.0f, 1.0f);
+            GL11.glRotatef(1, 0.0f, 0.0f, 0.0f);
             sphere.setDrawStyle(GLU.GLU_LINE);
-            sphere.draw(1.0f, 32, 32);
-        GL11.glPopMatrix();
+            sphere.draw(.50f, 32, 32);
     }
 
 
