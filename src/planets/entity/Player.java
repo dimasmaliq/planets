@@ -33,6 +33,11 @@ public class Player extends Entity implements Moveable
     private HashMap<String, Integer> keys;
 
     /**
+     * Controls how the player moves
+     */
+    private MovementMeans movement;
+
+    /**
      * A good speed for the player to move at the start
      */
     private static final float DEFAULT_SPEED = .10f;
@@ -50,8 +55,10 @@ public class Player extends Entity implements Moveable
         super();
         speed = DEFAULT_SPEED;
         turnSpeed = DEFAULT_TURNSPEED;
+        movement = new FlyMovement(this);
         keys = getDefaultKeys();
     }
+
 
     public void update()
     {
@@ -84,11 +91,11 @@ public class Player extends Entity implements Moveable
          */
         if(TestableKeyboard.isKeyDown(keys.get("up")))
         {
-            move(new Vector3f(0.0f, speed, 0.0f));
+            movement.fly();
         }
         else if(TestableKeyboard.isKeyDown(keys.get("down")))
         {
-            move(new Vector3f(0.0f, -speed, 0.0f));
+            movement.sink();
         }
 
         /**
@@ -96,11 +103,11 @@ public class Player extends Entity implements Moveable
          */
         if(TestableKeyboard.isKeyDown(keys.get("left")))
         {
-            move(new Vector3f(-speed, 0.0f, 0.0f));
+            movement.strafeLeft();
         }
         else if(TestableKeyboard.isKeyDown(keys.get("right")))
         {
-            move(new Vector3f(speed, 0.0f, 0.0f));
+            movement.strafeRight();
         }
 
         /**
@@ -108,11 +115,11 @@ public class Player extends Entity implements Moveable
          */
         if(TestableKeyboard.isKeyDown(keys.get("forward")))
         {
-            move(new Vector3f(0.0f, 0.0f, -speed));
+            movement.forward();
         }
         else if(TestableKeyboard.isKeyDown(keys.get("backward")))
         {
-            move(new Vector3f(0.0f, 0.0f, speed));
+            movement.backward();
         }
 
         /**

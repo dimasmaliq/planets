@@ -23,4 +23,34 @@ public interface Moveable
      * @param delta How much the object should rotate
      */
     public void rotate(Vector3f delta);
+
+    /**
+     * Gets the object's location
+     * @return the object's location
+     */
+    public Vector3f getLocation();
+
+    /**
+     * Set the object's location
+     * @param location the object's new location
+     */
+    public void setLocation(Vector3f location);
+
+    /**
+     * Gets the  object's rotation
+     * @return The object's rotation
+     */
+    public Vector3f getRotation();
+
+    /**
+     * Sets the object's rotation
+     * @param rotation the object's new rotation
+     */
+    public void setRotation(Vector3f rotation);
+
+    /**
+     * Gets the speed at which the moveable can move
+     * @return The object's movement speed
+     */
+    public float getSpeed();
 }

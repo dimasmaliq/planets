@@ -98,12 +98,16 @@ public class PlanetsGame
     @Override
     public void draw()
     {
+        GL11.glLoadIdentity();
         camera.draw();
+
+        GL11.glPushMatrix();
         Sphere sphere = new Sphere();
             GL11.glColor3f(1.0f, 1.0f, 1.0f);
             GL11.glRotatef(1, 0.0f, 0.0f, 0.0f);
             sphere.setDrawStyle(GLU.GLU_LINE);
             sphere.draw(.50f, 32, 32);
+        GL11.glPopMatrix();
     }
 
 
