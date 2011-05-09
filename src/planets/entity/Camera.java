@@ -1,8 +1,8 @@
 package planets.entity;
 
+import planets.Drawable;
 import planets.Entity;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Vector3f;
 
 // -------------------------------------------------------------------------
 /**
@@ -12,7 +12,7 @@ import org.lwjgl.util.vector.Vector3f;
  *  @version May 7, 2011
  */
 public class Camera
-    extends Entity
+    extends Entity implements Drawable
 {
     /**
      * An Entity to be attached to
