@@ -1,5 +1,6 @@
 package planets;
 
+import planets.entity.Camera;
 import planets.entity.Player;
 import javax.swing.JFrame;
 import org.lwjgl.opengl.GL11;

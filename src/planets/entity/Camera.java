@@ -1,4 +1,4 @@
-package planets;
+package planets.entity;
 
 import planets.Entity;
 import org.lwjgl.opengl.GL11;
