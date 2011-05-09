@@ -5,7 +5,7 @@ import org.lwjgl.util.vector.Vector3f;
 /**
  * // -------------------------------------------------------------------------
 /**
- *  A wrapper class created for ease of testing against Vecto3f's. smh
+ *  A wrapper class created for ease of testing against Vector3f's. smh
  *
  *  @author carlos
  *  @version May 3, 2011
@@ -13,6 +13,8 @@ import org.lwjgl.util.vector.Vector3f;
 public class TestableVector3f
     extends Vector3f
 {
+    private static final float THRESHOLD = .002f;
+
     /**
      * Just instantiate the superclass version normally
      * @param x The X component of the Vector
@@ -36,9 +38,9 @@ public class TestableVector3f
         if(other instanceof Vector3f)
         {
             Vector3f vecRef = (Vector3f)other;
-            if(vecRef.getX() == getX() &&
-                vecRef.getY() == getY() &&
-                vecRef.getZ() == getZ())
+            if(Math.abs(vecRef.getX() - getX()) < THRESHOLD &&
+                Math.abs(vecRef.getY() - getY()) < THRESHOLD &&
+                Math.abs(vecRef.getZ() - getZ()) < THRESHOLD)
             {
                 return true;
             }
