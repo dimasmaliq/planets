@@ -1,7 +1,6 @@
 package planets.tests.entity;
 
 import planets.input.TestableKeyboard;
-import org.lwjgl.input.Keyboard;
 import planets.tests.TestableVector3f;
 import org.lwjgl.util.vector.Vector3f;
 import planets.entity.Player;

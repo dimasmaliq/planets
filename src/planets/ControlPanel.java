@@ -1,8 +1,6 @@
 package planets;
 
 import java.awt.BorderLayout;
-import javax.swing.Box;
-import javax.swing.JLabel;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;

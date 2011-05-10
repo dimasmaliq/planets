@@ -2,6 +2,13 @@ package planets.entity;
 
 import org.lwjgl.util.vector.Vector3f;
 
+// -------------------------------------------------------------------------
+/**
+ *  Describes a method of movement similar to that of a spectator in a FPS
+ *
+ *  @author carlos
+ *  @version May 9, 2011
+ */
 public class FlyMovement implements MovementMeans
 {
     private Moveable toMove;

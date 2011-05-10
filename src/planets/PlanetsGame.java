@@ -6,11 +6,6 @@ import javax.swing.JFrame;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.glu.Sphere;
-import org.lwjgl.util.vector.Vector3f;
-import org.lwjgl.util.vector.Vector2f;
-import java.io.File;
-import java.io.IOException;
-import org.lwjgl.input.Keyboard;
 
 // -------------------------------------------------------------------------
 /**
@@ -23,12 +18,9 @@ import org.lwjgl.input.Keyboard;
 public class PlanetsGame
     extends Game
 {
-    private GameState     gameState;
+    //private GameState     gameState;
     private Player        player;
     private Camera        camera;
-
-    private boolean       showingTriggerText;
-    private boolean       keyPressed;
 
     /**
      * The driver for the game
@@ -65,8 +57,6 @@ public class PlanetsGame
      *            the height of the game
      * @param drawPanel
      *            the panel to draw the game on in windowed mode
-     * @param textLabel
-     *            the GameText
      */
     public PlanetsGame(int width, int height, DrawPanel drawPanel)
     {
@@ -77,15 +67,10 @@ public class PlanetsGame
     @Override
     public void load()
     {
-        gameState = new GameState();
+        //gameState = new GameState();
 
         player = new Player();
-
-
         camera = new Camera(player);
-
-        loadActors();
-        loadTriggers();
     }
 
 
@@ -109,16 +94,5 @@ public class PlanetsGame
             sphere.setDrawStyle(GLU.GLU_LINE);
             sphere.draw(.50f, 32, 32);
         GL11.glPopMatrix();
-    }
-
-
-    private void loadActors()
-    {
-
-    }
-
-
-    private void loadTriggers()
-    {
     }
 }
