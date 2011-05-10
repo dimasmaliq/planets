@@ -47,7 +47,7 @@ public abstract class EntityTest extends TestCase
      */
     public void testSetLocation()
     {
-        testEntity.setLocation(new Vector3f(1.0f, 1.0f, 1.0f));
+        testEntity.setLocation(new Vector3f(1.0f, 1.0f, 1.0f ));
         assertEquals(new TestableVector3f(1.0f, 1.0f, 1.0f), testEntity.getLocation());
     }
 
