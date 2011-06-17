@@ -54,4 +54,15 @@ public class TestableVector3f
             return false;
         }
     }
+
+    /**
+     * Calculates the sum of two vectors
+     * @return the sum of left and right
+     */
+    public static Vector3f add(Vector3f left, Vector3f right)
+    {
+        return new Vector3f(left.getX() + right.getX(),
+                            left.getY() + right.getY(),
+                            left.getZ() + right.getZ());
+    }
 }
