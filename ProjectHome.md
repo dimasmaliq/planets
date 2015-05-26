@@ -1,0 +1,1 @@
+Simulates a solar system that the player can create by hurling rocks together creating bigger planets and stars
